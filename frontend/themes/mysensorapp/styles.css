@@ -1,0 +1,12 @@
+@import url('./main-layout.css');
+@import url('./views/sensor-values-view.css');    html {
+      --lumo-success-color: hsl(145, 76%, 48%);
+      --lumo-success-color-50pct: hsla(145, 76%, 48%, 0.5);
+      --lumo-success-color-10pct: hsla(145, 76%, 48%, 0.1);
+
+    }
+
+    [theme~="dark"] {
+      --lumo-body-text-color: hsla(214, 0%, 97%, 0.9);
+
+    }
