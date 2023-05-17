@@ -7,9 +7,21 @@ import java.time.LocalDateTime;
 public class SensorValues extends AbstractEntity {
 
     private LocalDateTime date;
-    private Integer temparature;
+    private Integer temperature;
     private Integer humidity;
     private Integer pressure;
+
+    public SensorValues() {
+        // Default constructor required by Jackson for deserialization
+    }
+
+    public SensorValues(LocalDateTime date, Number temperature, Number humidity, Number pressure) {
+        this.date = date;
+        this.temperature = temperature.intValue();
+        this.humidity = humidity.intValue();
+        this.pressure = pressure.intValue();
+    }
+
 
     public LocalDateTime getDate() {
         return date;
@@ -17,11 +29,11 @@ public class SensorValues extends AbstractEntity {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
-    public Integer getTemparature() {
-        return temparature;
+    public Integer getTemperature() {
+        return temperature;
     }
-    public void setTemparature(Integer temparature) {
-        this.temparature = temparature;
+    public void setTemperature(Integer temperature) {
+        this.temperature = temperature;
     }
     public Integer getHumidity() {
         return humidity;

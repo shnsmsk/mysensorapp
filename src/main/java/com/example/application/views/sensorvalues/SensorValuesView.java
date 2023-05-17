@@ -44,7 +44,7 @@ public class SensorValuesView extends Div implements BeforeEnterObserver {
     private final Grid<SensorValues> grid = new Grid<>(SensorValues.class, false);
 
     private DateTimePicker date;
-    private TextField temparature;
+    private TextField temperature;
     private TextField humidity;
     private TextField pressure;
 
@@ -71,7 +71,7 @@ public class SensorValuesView extends Div implements BeforeEnterObserver {
 
         // Configure Grid
         grid.addColumn("date").setAutoWidth(true);
-        grid.addColumn("temparature").setAutoWidth(true);
+        grid.addColumn("temperature").setAutoWidth(true);
         grid.addColumn("humidity").setAutoWidth(true);
         grid.addColumn("pressure").setAutoWidth(true);
         grid.setItems(query -> sensorValuesService.list(
@@ -93,8 +93,8 @@ public class SensorValuesView extends Div implements BeforeEnterObserver {
         binder = new BeanValidationBinder<>(SensorValues.class);
 
         // Bind fields. This is where you'd define e.g. validation rules
-        binder.forField(temparature).withConverter(new StringToIntegerConverter("Only numbers are allowed"))
-                .bind("temparature");
+        binder.forField(temperature).withConverter(new StringToIntegerConverter("Only numbers are allowed"))
+                .bind("temperature");
         binder.forField(humidity).withConverter(new StringToIntegerConverter("Only numbers are allowed"))
                 .bind("humidity");
         binder.forField(pressure).withConverter(new StringToIntegerConverter("Only numbers are allowed"))
@@ -159,10 +159,10 @@ public class SensorValuesView extends Div implements BeforeEnterObserver {
         FormLayout formLayout = new FormLayout();
         date = new DateTimePicker("Date");
         date.setStep(Duration.ofSeconds(1));
-        temparature = new TextField("Temparature");
+        temperature = new TextField("Temperature");
         humidity = new TextField("Humidity");
         pressure = new TextField("Pressure");
-        formLayout.add(date, temparature, humidity, pressure);
+        formLayout.add(date, temperature, humidity, pressure);
 
         editorDiv.add(formLayout);
         createButtonLayout(editorLayoutDiv);
